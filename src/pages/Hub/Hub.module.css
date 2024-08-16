@@ -1,0 +1,372 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Montserrat";
+  color: #f8f7f7;
+  background: black;
+  position: relative;
+  transition: filter 0.3s ease;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1.5fr 1fr; /* Uma coluna */
+  grid-template-rows: auto auto; /* Duas linhas */
+  grid-template-areas: "create card search";
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #fff;
+}
+
+.controlCreate {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.fileUpload {
+  cursor: pointer;
+  display: flex;
+  font-family: "Montserrat";
+  align-items: center;
+  border: 1px solid #ccc;
+  outline: none;
+  color: #fff;
+  padding: 5px;
+  gap: 0.5rem;
+  border-radius: 5px;
+}
+
+.fileUpload input {
+  display: none; /* Oculta o campo de input */
+}
+
+.search {
+  grid-area: search;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #141414ee;
+  gap: 1rem;
+  border-radius: 25px;
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical conforme necessário */
+  max-height: 420px;
+}
+
+.search input {
+  height: 30px;
+  width: 200px;
+  border-radius: 20px;
+  padding: 1rem;
+  border: none;
+  outline: none;
+}
+
+.search button {
+  height: 30px;
+  width: 90px;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 20px;
+  background-color: #530477;
+  cursor: pointer;
+  transform: 0.5s;
+}
+
+.search button:hover {
+  background-color: #3b0455;
+  opacity: 0.8;
+}
+
+.search::-webkit-scrollbar {
+  display: none;
+}
+
+.controlSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 16px;
+  text-align: center;
+}
+
+.controleSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.card2 {
+  grid-area: card;
+  width: 100%;
+  display: flex;
+  justify-self: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#btnCreate{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    outline: 0;
+    color: white;
+    font-family: "Montserrat";
+    font-size: 20px;
+    width: 13%;
+    background-color: rgba(8, 112, 8, 0.689);
+    border-radius: 5px;
+    padding: 0.3rem;
+    cursor: pointer;
+    animation-duration: '0.5s'
+}
+
+#btnCreate:hover{
+    background-color: rgba(8, 112, 8, 0.8);
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-color: #141414ee;
+  opacity: 0;
+  transition: opacity 0.3s;
+  gap: 1rem;
+  border-radius: 25px;
+}
+
+.modal svg {
+  cursor: pointer;
+  color: white;
+}
+
+.modal input {
+  height: 30px;
+  width: 400px;
+  border-radius: 20px;
+  padding: 1rem;
+  border: none;
+  outline: none;
+}
+
+.modal textarea {
+  height: 90px;
+  width: 400px;
+  border-radius: 20px;
+  padding: 10px 1rem;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+}
+
+.texto{
+    font-size: 1.3rem;
+    font-family: 'montserrat';
+    color: white;
+}
+
+.modal button {
+  height: 30px;
+  width: 150px;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 20px;
+  background-color: #530477;
+  cursor: pointer;
+  transform: 0.5s;
+  margin-bottom: 1rem;
+}
+
+.modal button:hover {
+  background-color: #3b0455;
+  opacity: 0.8;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.blur {
+  filter: blur(5px);
+  backdrop-filter: blur(0);
+  pointer-events: none;
+}
+
+#closeModal{
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-start;
+    color: rgb(160, 14, 14);
+    font-size: 1.7rem;
+}
+
+#closeModal:hover{
+    color: rgb(255, 0, 0);
+}
+
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+  width: 100%;
+}
+
+.imageControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.card2 svg {
+  display: flex;
+  align-self: flex-end;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: red;
+  cursor: pointer;
+}
+
+#editando {
+  color: rgb(11, 11, 205);
+}
+
+#editando:hover {
+  color: rgb(5, 5, 86);
+}
+
+.card2 svg:hover {
+  color: rgb(134, 25, 25);
+}
+
+.selectedNews {
+  margin-top: 20px;
+  animation: highlight 4s ease-in-out; /* Adiciona uma transição suave */
+}
+
+@keyframes highlight {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 253, 0.529); /* Cor de destaque inicial */
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0); /* Transição para sem sombra */
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.455); /* Cor de destaque final */
+  }
+}
+
+
+.news {
+  display: flex;
+  background-color: #141414ee;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 80%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 25px;
+}
+
+.news p {
+  text-align: justify;
+  word-break: break-all;
+  white-space: pre-line;
+  padding: 0.8rem;
+}
+
+.news img {
+  width: 22rem;
+  height: 15rem;
+  margin-top: 1rem;
+  object-fit: cover;
+}
+
+.newsGroup {
+  display: flex;
+  padding: 2rem;
+  padding-left: 5rem;
+  gap: 2rem;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.hidden{
+    display: none;
+}
+
+.news2 {
+  display: flex;
+  background-color: #141414ee;
+  width: 80%;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  text-align: justify;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.news2 img {
+  width: 15rem;
+  height: 10rem;
+  margin-top: 1rem;
+  object-fit: cover;
+}
+
+.news2:hover{
+    background-color: #1b1b1b;
+
+}
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }

@@ -1,0 +1,155 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    height: 80vh;
+    width: 80%;
+    background-color: #585858;
+  }
+  
+  .chatHeader {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    background-color: #333;
+  }
+  
+  .chatFoto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  
+  .chatNome {
+    margin: 0;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .chatMensagens {
+    flex: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+    padding: 10px;
+    background-color: #3f3f3f;
+    box-sizing: border-box;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .message.sent {
+    text-align: right;
+  }
+  
+  .message.received {
+    text-align: left;
+  }
+  
+  .message p {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  .message.sent {
+    text-align: right;
+}
+
+.message.received {
+    text-align: left;
+}
+  
+  .message.sent p {
+    background-color: purple;
+    color: #fff;
+  }
+  
+  .message.received p {
+    background-color: #ddd;
+    color: #000;
+  }
+  
+  .chatInput {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #444;
+    background-color: #333;
+    gap: 10px;
+  }
+
+  .message.sent p {
+    background-color: purple;
+    color: #fff;
+}
+
+.message.received p {
+    background-color: #ddd;
+    color: #000;
+}
+  
+  .mensagemInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    margin-right: 10px;
+    background-color: #444;
+    color: #fff;
+    outline: none;
+  }
+  
+  .sendMessage {
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: purple;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .sendMessage:hover {
+    background-color: rgb(88, 1, 88);
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.5rem;
+  }
+
+
+  .typing{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #444;
+    color: white;
+    justify-content: center;
+    background-color: #333;
+  }
+
+
+  .emojiButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .emojiPicker {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    z-index: 10;
+  }

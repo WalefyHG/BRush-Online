@@ -1,0 +1,95 @@
+
+.mainContainer{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 40vw 1fr;
+  flex-direction: column;
+  font-family: 'Montserrat';
+  background-color: #111;
+  position: relative;
+}
+
+
+.listaContatos{
+  width:19vw;
+  height:80vh;
+  left:40vh;
+  margin-top:10vh;
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat';
+  background-color: #111;
+  position: relative;
+  background-color: #585858;
+  overflow-y: auto;
+}
+.contato{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none; 
+  color: #fff;
+  border-bottom: 2px solid purple;
+  cursor: pointer;
+}
+.contato:hover {
+  background-color: #444;
+}
+.foto{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px; /* quão pra direita o texto de contato vai */
+  border-radius: 50%;
+  object-fit: cover;
+}
+.contatoInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+}
+
+.nomeContato {
+  margin: 0;
+}
+
+.ultimaMensagem {
+  margin: 0;
+  color: #bbb;    
+}
+
+.unreadCount{
+  background-color: #f00;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-left: auto;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  
+}
+
+.unreadCount.visible{
+  display: flex;
+}
+
+
+.chatContainer {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+}
+
+
+
+.containerFooter {
+  background-color: #888;
+}

@@ -1,0 +1,88 @@
+.mainContainer {
+  font-family: "Poppins", sans-serif;
+  background-image: url(/backgroundLogin.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Montserrat";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55rem;
+  height: 40.8rem;
+  color: white;
+  background-color: #181515;
+  border-radius: 20px 0px 20px 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 20rem;
+}
+
+.header img {
+  width: 7rem;
+  height: 7rem;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.formContainer {
+  max-width: 600px;
+  background-color: #222;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  margin-bottom: 1.5rem;
+  
+}
+
+.formContainer form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.inputsContainer {
+  min-height: 200px;
+}
+
+.action{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action button{
+    padding: 0.5rem 1rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    gap: 0.5rem;
+    border-radius: 15px;
+}
+
+.action button:hover{
+    background-color: #333;
+}
