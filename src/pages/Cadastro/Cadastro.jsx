@@ -29,6 +29,7 @@ const formsTemplate = {
   user_games: "CS:GO",
   user_pais: "Brasil",
   tipo: "atleta",
+  is_confirmed: false,
 }
 
 const Cadastro = () => {
@@ -68,9 +69,44 @@ const Cadastro = () => {
   const {currentStep, currentComponent, changeSteps, isLastStep, isFirstStep} = FormsData(formsComponents);
 
 
+
+    const validadeFields = () => {
+      if(currentStep === 0 && (!data.user_name || !data.user_lastName)){
+        Toast.fire({
+          icon: 'error',
+          title: 'Nome e Sobrenome são obrigatórios!'
+        })
+        return false;
+      }
+
+      if(currentStep === 2){
+        if(data.password !== data.confirm_password){
+          Toast.fire({
+            icon: 'error',
+            title: 'Senhas não conferem!'
+          })
+          return false;
+        }
+
+        if(data.password.length < 8){
+          Toast.fire({
+            icon: 'error',
+            title: 'Senha deve ter no mínimo 8 caracteres!'
+          })
+          return false;
+        }
+      }
+      return true;
+    }
+
+
+
   const handleFormSubmission = (e) => {
     e.preventDefault(); // Impede que o formulário seja enviado prematuramente
   
+    if(!validadeFields()) return;
+
+
     if (!isLastStep) {
       // Se não for a última etapa, avance para a próxima etapa
       changeSteps(currentStep + 1);
@@ -87,31 +123,26 @@ const Cadastro = () => {
     formData.append('user', JSON.stringify(data));
     formData.append("image", dataImagem);
 
-    if(data.password.length < 8){
-      Toast.fire({
-        icon: 'error',
-        title: 'A senha deve ter no mínimo 8 caracteres!'
-      })
-      return;
-    }
-
-    if(data.password !== data.confirm_password){
-      Toast.fire({
-        icon: 'error',
-        title: 'As senhas não conferem!'
-      })
-      return;
-    }
-
+    let loadingToast;
 
     try{
+
+      loadingToast = Toast.fire({
+        title: "Carregando...",
+        icon: "info",
+        timer: false,
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      })
+
+
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/users/criando`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
       
-      console.log(response)
 
       if(response.status === 200){
         Toast.fire({
@@ -119,24 +150,29 @@ const Cadastro = () => {
           title: 'Cadastro realizado com sucesso!'
         })
         setTimeout(() => {
-          navigate('/')
+          navigate('/notification')
         }, 3000)
         reset();
       }
       }
     catch(error){
-      console.log(error)
         if(error.response.data.detail === "Email já cadastrado"){
           Toast.fire({
             icon: 'error',
             title: 'Email já cadastrado!'
           })
+          changeSteps(1);
         }
         else{
           Toast.fire({
             icon: 'error',
             title: 'Nome de usuário já cadastrado!'
           })
+          changeSteps(0);
+        }
+      }finally{
+        if(loadingToast){
+          loadingToast.close();
         }
       }
   }
@@ -145,11 +181,11 @@ const Cadastro = () => {
     <>
       <div className={classes.mainContainer}>
         <div className={classes.container}>
+          <div className={classes.formContainer}>
           <div className={classes.header}>
             <img src="/FaviconLight.png" alt="" />
             <p>Faça Aqui o Seu Cadastro no B-Rush</p>
           </div>
-          <div className={classes.formContainer}>
             <Steps currentStep={currentStep} />
             <form onSubmit={handleFormSubmission}>
               <div className={classes.inputsContainer}>{currentComponent}</div>

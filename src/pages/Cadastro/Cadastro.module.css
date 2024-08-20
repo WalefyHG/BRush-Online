@@ -17,10 +17,17 @@
   align-items: center;
   width: 55rem;
   height: 40.8rem;
+  background-color: transparent;
   color: white;
-  background-color: #181515;
-  border-radius: 20px 0px 20px 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.formContainer {
+  max-width: 700px;
+  background-color: #222;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  margin-bottom: 1.5rem;
+  
 }
 
 .header {
@@ -29,7 +36,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  width: 20rem;
 }
 
 .header img {
@@ -42,15 +48,6 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-}
-
-.formContainer {
-  max-width: 600px;
-  background-color: #222;
-  padding: 1.5rem;
-  border: 1px solid #333;
-  margin-bottom: 1.5rem;
-  
 }
 
 .formContainer form {

@@ -7,7 +7,7 @@ const Name = ({ data, updateFieldHandler }) => {
   return (
     <div>
       <div className={classes.formControl}>
-      <label htmlFor="user_name">UserName</label>
+      <label htmlFor="user_name">Usuário</label>
         <input
           type="text"
           id="lastName"

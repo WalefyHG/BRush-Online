@@ -83,7 +83,7 @@ const Info = () => {
 
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_API_URL}/users/atualizar/${existingData.user_id}`,
+        `${import.meta.env.VITE_API_URL}/users/atualizar/${existingData.id}`,
         formsData,
         {
           headers: {

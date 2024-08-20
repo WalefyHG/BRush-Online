@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaDoorOpen, FaRegNewspaper } from "react-icons/fa";
 import { IoPersonCircle } from "react-icons/io5";
 import { FaUserFriends } from "react-icons/fa";
+import { IoIosSettings } from "react-icons/io";
 
 const NavBar = ({ user }) => {
   const [user_firstName, setUserFirstName] = useState("");
@@ -95,6 +96,9 @@ const NavBar = ({ user }) => {
                       </button>
                       <button onClick={() => navigate("/hub")}>
                         <FaRegNewspaper /> Hub
+                      </button>
+                      <button onClick={() => navigate("/config")}>
+                        <IoIosSettings /> Config
                       </button>
                       <button id={classes.logout} onClick={handleLogout}>
                         <FaDoorOpen /> Logout

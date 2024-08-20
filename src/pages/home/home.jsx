@@ -14,6 +14,7 @@ const home = () => {
     reset,
   } = useForm();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
   const Toast = Swal.mixin({
@@ -30,13 +31,37 @@ const home = () => {
     },
   });
 
+
+  useEffect(() => {
+    const savedEmail = Cookies.get("user_email");
+    if(savedEmail){
+      reset({user_email: savedEmail});
+      setRememberMe(true);
+    }
+  }, [reset])
+
+
   const onSubmit = async (data) => {
     const formsData = {
       user_email: data.user_email,
       password: data.password,
     };
 
+    let loadingToast;
+
+
+
     try {
+      
+      loadingToast = Toast.fire({
+        title: "Carregando...",
+        icon: "info",
+        timer: false,
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      })
+
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/login/login`,
         formsData
@@ -47,12 +72,18 @@ const home = () => {
       if (response.status === 200) {
         const token = response.data.access;
         Cookies.set("token", token);
-        if (response.data.mensagem === "Usuário não confirmado") {
-          navigate("/notification");
-        } else {
+
+        if(rememberMe){
+          Cookies.set("user_email", data.user_email, {expires: 30});
+        }else{
+          Cookies.remove("user_email");
+        }
+
+
+        if (response.data.mensagem === "Logado com sucesso") {
           setLoggedIn(true);
           navigate("/hub");
-        }
+        } 
         reset();
       }
 
@@ -81,6 +112,10 @@ const home = () => {
         }
       }
       
+    }finally{
+      if(loadingToast){
+        loadingToast.close()
+      }
     }
   };
   return (
@@ -107,17 +142,17 @@ const home = () => {
           {errors.password && <p>{errors.password.message}</p>}
           <br />
           <div className={classes.sideButtons}>
-            <button className={classes.button}>Entrar</button>
             <a
               href="/cadastro"
               className={classes.button}
               id={classes.cancelar}
             >
-              Cadastrar
+              Criar Conta
             </a>
+            <button className={classes.button}>Entrar</button>
           </div>
           <div className={classes.select}>
-            <input type="checkbox" name="lembrar" id={classes.lembrar} />
+            <input type="checkbox" name="lembrar" id={classes.lembrar} checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)} />
             <label htmlFor="lembrar">Lembrar-me</label>
           </div>
           <div className={classes.select}>

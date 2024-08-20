@@ -80,13 +80,13 @@ const Notification = () => {
           }
         });
 
-        if(response.data.mensagem === "Código verificado com sucesso"){
+        if(response.data.mensagem === "Usuário confirmado com sucesso"){
           Toast.fire({
             icon: "success",
             title: "Código verificado com sucesso!",
           })
           setTimeout(() => {
-            Navigate('/hub');
+            Navigate('/');
           }, 3000)
 
         }else{
