@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/BRush-Online',
   build: {
-    chunkSizeWarningLimit: 1000, 
+    chunkSizeWarningLimit: 1000,
+    assetsDir: 'assets',
   }
 })
