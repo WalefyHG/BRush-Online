@@ -7,12 +7,6 @@ export default defineConfig({
   base: '/BRush-Online',
   build: {
     chunkSizeWarningLimit: 1000,
-    assetsDir: 'assets',
     outDir: 'dist',
-    rollupOptions: {
-      input: {
-        main: './index.html',
-      },
-    },
   }
 })
