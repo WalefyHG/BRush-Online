@@ -7,6 +7,6 @@ export default defineConfig({
   base: '/BRush-Online',
   build: {
     chunkSizeWarningLimit: 1000,
-    outDir: 'dist',
+    outDir: 'build',
   }
 })
