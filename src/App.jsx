@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Home from "./pages/home/home";
 import Perfil from "./pages/Perfil/Perfil";
 import Config from "./pages/Configuracao/Config";
@@ -24,9 +25,9 @@ import Chats from "./pages/Chats/Chats";
 function App() {
   return (
     <>
-      <Router>
+      <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" exact element={<Home />} />
         </Routes>
         <Routes>
           <Route
@@ -99,7 +100,7 @@ function App() {
           <Route path="/chat/:roomName" element={<Chats/>} />
           
         </Routes>
-      </Router>
+      </HashRouter>
     </>
   );
 }
