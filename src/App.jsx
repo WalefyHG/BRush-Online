@@ -25,7 +25,7 @@ import Chats from "./pages/Chats/Chats";
 function App() {
   return (
     <>
-      <Router>
+      <HashRouter>
         <Routes>
           <Route path="/" exact element={<Home />} />
         </Routes>
@@ -100,7 +100,7 @@ function App() {
           <Route path="/chat/:roomName" element={<Chats/>} />
           
         </Routes>
-      </Router>
+      </HashRouter>
     </>
   );
 }
