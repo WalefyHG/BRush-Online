@@ -122,7 +122,7 @@ const home = () => {
     <>
       <div className={classes.mainContainer}>
         <form onSubmit={handleSubmit(onSubmit)} className={classes.forms}>
-          <img src="/FaviconLight.png" alt="B-Rush" id={classes.icon} />
+          <img src="./FaviconLight.png" type="" alt="B-Rush" id={classes.icon} />
           <input
             type="text"
             name="user_email"
