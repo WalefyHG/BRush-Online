@@ -183,7 +183,7 @@ const Cadastro = () => {
         <div className={classes.container}>
           <div className={classes.formContainer}>
           <div className={classes.header}>
-            <img src="/FaviconLight.png" alt="" />
+            <img src="./FaviconLight.png" alt="" />
             <p>Faça Aqui o Seu Cadastro no B-Rush</p>
           </div>
             <Steps currentStep={currentStep} />

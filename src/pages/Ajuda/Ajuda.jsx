@@ -7,7 +7,7 @@ const Ajuda = () => {
     <div className={classes.mainContainer}>
     <NavBar />
     <div className={classes.foto}>
-      <img src="/Perfil/fallen.jpg" />
+      <img src="./Perfil/fallen.jpg" />
     </div>
     <form class={classes.card}>
       <label for="user">Nome de Usúario:</label>

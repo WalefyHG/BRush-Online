@@ -110,10 +110,10 @@ const Notification = () => {
       <div className={classes.mainContainer}>
         <div className={classes.container}>
           <div className={classes.imagemDiv}>
-            <img src="/FaviconLight.png" alt="" />
+            <img src="./FaviconLight.png" alt="" />
           </div>
           <div className={classes.temp}>
-            <img src="/tempo-restante2.png" alt="" />
+            <img src="./tempo-restante2.png" alt="" />
             <h3>{formatTime(countdown)}</h3>
           </div>
 

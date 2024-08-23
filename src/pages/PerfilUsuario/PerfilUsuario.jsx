@@ -112,16 +112,16 @@ const Perfil = () => {
               <a href="#" className={classes.iconCsgo}>
                 {perfilData.user_games === "CS:GO" && (
                   <img
-                    src="/4737387_counter strike_cs_csgo_games_gaming_icon.svg"
+                    src="./4737387_counter strike_cs_csgo_games_gaming_icon.svg"
                     alt="Counter-Strike icon"
                   />
                 )}
                 {perfilData.user_games === "Valorant" && (
-                  <img src="/download.jpg" alt="Valorant icon" />
+                  <img src="./download.jpg" alt="Valorant icon" />
                 )}
                 {perfilData.user_games === "League of Legends" && (
                   <img
-                    src="/lol-league-of-Legends-logo-5.png"
+                    src="./lol-league-of-Legends-logo-5.png"
                     alt="League Of Legends icon"
                   />
                 )}
@@ -130,7 +130,7 @@ const Perfil = () => {
                 <h1>{perfilData.user_name}</h1>
                 <h2>
                   <img
-                    src="/Perfil/logo.png"
+                    src="./Perfil/logo.png"
                     className={classes.imm}
                     alt="Logo"
                   />{" "}
@@ -142,22 +142,22 @@ const Perfil = () => {
               <ul>
                 <li>
                   <a onClick={() => openSocialMediaLink(perfilData.user_instagram)}>
-                    <img src="/logos/instagram.png" alt="Instagram" />
+                    <img src="./logos/instagram.png" alt="Instagram" />
                   </a>
                 </li>
                 <li>
                   <a onClick={() => openSocialMediaLink(perfilData.user_twitter)}>
-                    <img src="/logos/twitter.png" alt="Twitter" />
+                    <img src="./logos/twitter.png" alt="Twitter" />
                   </a>
                 </li>
                 <li>
                   <a onClick={() => openSocialMediaLink(perfilData.user_twitch)}>
-                    <img src="/logos/twitch.png" alt="Twitch" />
+                    <img src="./logos/twitch.png" alt="Twitch" />
                   </a>
                 </li>
                 <li>
                   <a onClick={() => openSocialMediaLink(perfilData.user_youtube)}>
-                    <img src="/logos/youtube.png" alt="Youtube" />
+                    <img src="./logos/youtube.png" alt="Youtube" />
                   </a>
                 </li>
               </ul>

@@ -58,7 +58,7 @@ const NavBar = ({ user }) => {
         <div className={classes.navContainer}>
           <div className={classes.search}>
             <img
-              src="/FaviconLight.png"
+              src="./FaviconLight.png"
               id={classes.logoBrush}
               alt="Logo B-Rush"
             />
