@@ -153,7 +153,7 @@ const FriendShipModal = ({ show, onClose }) => {
       if (result.isConfirmed) {
         if(token){
           try{
-            const response = axios.delete("http://127.0.0.1:8000/friendship/delete_friendship", {
+            const response = axios.delete(`${import.meta.env.VITE_API_URL}/friendship/delete_friendship`, {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
