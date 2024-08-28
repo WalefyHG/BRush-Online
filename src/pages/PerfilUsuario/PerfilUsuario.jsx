@@ -21,6 +21,20 @@ const Perfil = () => {
   const [usuarioLogado, setUsuarioLogado] = useState(undefined);
   const { user_name } = useParams();
 
+  const Toast = Swal.mixin({
+    toast: true,
+    background: "#555",
+    color: "#fff",
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+
   useEffect(() => {
     const fetchData = async () => {
       const token = Cookies.get("token");
@@ -66,6 +80,49 @@ const Perfil = () => {
 
     fetchUser();
   }, []);
+
+
+
+  const handleSendFriendRequest = async () => {
+    const token = Cookies.get("token");
+
+    if(token){
+      try{
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/friendship/send_request/${perfilData.id}`, null,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      if(response.data.mensagem == "Solicitação de amizade enviada com sucesso."){
+        Toast.fire({
+          icon: "success",
+          title: "Solicitação de amizade enviada com sucesso!"
+        })
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000)
+      }
+
+    }catch(e){
+      if(e.response.data.detail == "Você não pode enviar solicitação de amizade para si mesmo."){
+        Toast.fire({
+          icon: "error",
+          title: "Você não pode enviar solicitação de amizade para si mesmo."
+        })
+      }
+      if(e.response.data.detail =="Solicitação de amizade já enviada."){
+        Toast.fire({
+          icon: "error",
+          title: "Solicitação de amizade já enviada."
+        })
+      }
+      console.log(e);
+      
+    }
+  }
+  }
 
   const openSocialMediaLink = (link) => {
     if (link) {
@@ -140,6 +197,13 @@ const Perfil = () => {
             </div>
             <div className={classes.socialMedias}>
               <ul>
+              <li>
+                {perfilData.are_friends ? (
+                  <FaUsers />
+                ) : (
+                  <FaUserPlus onClick={handleSendFriendRequest} />
+                )}
+                </li>
                 <li>
                   <a onClick={() => openSocialMediaLink(perfilData.user_instagram)}>
                     <img src="./logos/instagram.png" alt="Instagram" />

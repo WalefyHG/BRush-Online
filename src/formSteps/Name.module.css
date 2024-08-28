@@ -18,3 +18,31 @@
     outline: none;
     color: white;
 }
+
+.dateClasse{
+    background-color: transparent;
+    border-radius: none;
+    color: white;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid white;
+}
+
+
+/* Quero que ao focar ele fique com o fundo transparente  */
+
+.dateClasse:focus{
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid white;
+}
+
+.dataClasse:hover{
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid white;
+}

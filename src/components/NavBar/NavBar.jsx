@@ -6,11 +6,14 @@ import { FaDoorOpen, FaRegNewspaper } from "react-icons/fa";
 import { IoPersonCircle } from "react-icons/io5";
 import { FaUserFriends } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
+import { FaRocketchat } from "react-icons/fa6";
+import FriendShipModal from "../FriendShipModal/FriendShipModal";
 
 const NavBar = ({ user }) => {
   const [user_firstName, setUserFirstName] = useState("");
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
   const modalRef = useRef();
 
   const handleLogout = () => {
@@ -32,6 +35,12 @@ const NavBar = ({ user }) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+
+  const handleCloseModalNavBar = () => {
+    setModalShow(true);
+    setIsModalOpen(false);
+  }
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -79,11 +88,11 @@ const NavBar = ({ user }) => {
               <li ref={modalRef}>
                 <a onClick={handleModal}>
                   <img
-                    src={`${import.meta.env.VITE_API_URL}${user.user_image}`}
+                    src={user?.user_image ? `${import.meta.env.VITE_API_URL}${user.user_image}` : "./Perfil/logo.png"}
                     id={classes.profile}
                     alt="Icone de Perfil"
                   />
-                  <p>{user.user_firstName}</p>
+                  <p>{user?.user_firstName}</p>
                 </a>
                 {isModalOpen && (
                   <div className={classes.modal}>
@@ -91,8 +100,11 @@ const NavBar = ({ user }) => {
                       <button onClick={() => navigate("/perfil")}>
                         <IoPersonCircle /> Perfil
                       </button>
-                      <button onClick={() => navigate("/chat")}>
+                      <button onClick={handleCloseModalNavBar}>
                         <FaUserFriends /> Amigos
+                      </button>
+                      <button onClick={() => navigate("/chat")}>
+                        <FaRocketchat /> Chat
                       </button>
                       <button onClick={() => navigate("/hub")}>
                         <FaRegNewspaper /> Hub
@@ -110,6 +122,9 @@ const NavBar = ({ user }) => {
             </ul>
           </div>
         </div>
+
+        <FriendShipModal show={modalShow} onClose={() => setModalShow(false)} />
+
       </nav>
     </div>
     )
