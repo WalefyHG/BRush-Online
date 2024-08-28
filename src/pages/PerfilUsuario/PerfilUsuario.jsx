@@ -8,6 +8,8 @@ import {
   FaTrophy,
   FaVideo,
   FaArrowCircleRight,
+  FaUserPlus,
+  FaUser,
 } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import classes from "./PerfilUsuario.module.css";
