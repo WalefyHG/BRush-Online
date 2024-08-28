@@ -18,11 +18,13 @@ import Footer from "../../components/Footer/Footer";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Perfil = () => {
   const [perfilData, setPerfilData] = useState(undefined);
   const [usuarioLogado, setUsuarioLogado] = useState(undefined);
   const { user_name } = useParams();
+  const navigate = useNavigate();
 
   const Toast = Swal.mixin({
     toast: true,
@@ -104,7 +106,7 @@ const Perfil = () => {
           title: "Solicitação de amizade enviada com sucesso!"
         })
         setTimeout(() => {
-          window.location.reload();
+          navigate("/hub")
         }, 2000)
       }
 
