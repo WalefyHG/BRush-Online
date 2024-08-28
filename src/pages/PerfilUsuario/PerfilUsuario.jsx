@@ -9,7 +9,7 @@ import {
   FaVideo,
   FaArrowCircleRight,
   FaUserPlus,
-  FaUser,
+  FaUsers,
 } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import classes from "./PerfilUsuario.module.css";
