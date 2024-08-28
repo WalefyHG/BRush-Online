@@ -11,6 +11,12 @@ const PesquisaResults = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState();
+  const navigate = useNavigate();
+
+
+
+  // href={`/perfil/${result.user_name}`
+
   useEffect(() => {
     const fetchData = async () => {
         const token = Cookies.get("token");
@@ -66,7 +72,7 @@ const PesquisaResults = () => {
         <ul>
           {results.map((result) => (
             <li key={result.user_id}>
-            <a className={classes.manipulate} href={`/perfil/${result.user_name}`}>
+            <a className={classes.manipulate} onClick={() => navigate(`/perfil/${result.user_name}`)} >
               <div className={classes.imageDiv}>
                 <img src={`${import.meta.env.VITE_API_URL}${result.user_image}`} alt="Imagem do Usuario" />
               </div>
