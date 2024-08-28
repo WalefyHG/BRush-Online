@@ -11,6 +11,7 @@ const FriendShipModal = ({ show, onClose }) => {
 
   const [acceptedFriends, setAcceptedFriends] = useState([]);
   const [pendingRequests, setPendingRequests] = useState([]);
+  const [userID, setUserID] = useState(null);
   const navigate = useNavigate();
   const Toast = Swal.mixin({
     toast: true,
@@ -43,7 +44,6 @@ const FriendShipModal = ({ show, onClose }) => {
               }
             );
             setAcceptedFriends(friendsResponse.data);
-            console.log(friendsResponse.data)
 
             // Buscar solicitações pendentes
             const requestsResponse = await axios.get(
@@ -55,10 +55,20 @@ const FriendShipModal = ({ show, onClose }) => {
               }
             );
             setPendingRequests(requestsResponse.data);
-            console.log(requestsResponse.data);
+
           } catch (error) {
             console.error("Erro ao buscar dados de amizade:", error);
           }
+
+          const requestUserLogado = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setUserID(requestUserLogado.data.id);
+
         }
       };
 
@@ -228,20 +238,22 @@ const FriendShipModal = ({ show, onClose }) => {
                                         <p><strong>Jogo Preferido:</strong> {request.user_games}</p>
                                         <p><strong>Nacionalidade:</strong> {request.user_pais}</p>
                                     </div>
-                                    <div className={classes.actionButtons}>
+                                    {request.user_id === userID && (
+                                      <div className={classes.actionButtons}>
                                         <button
-                                            className={classes.acceptButton}
-                                            onClick={() => handleAccept(request.id_friend)}
+                                          className={classes.acceptButton}
+                                          onClick={() => handleAccept(request.id_friend)}
                                         >
-                                            Aceitar
+                                          Aceitar
                                         </button>
                                         <button
-                                            className={classes.rejectButton}
-                                            onClick={() => handleReject(request.id_friend)}
+                                          className={classes.rejectButton}
+                                          onClick={() => handleReject(request.id_friend)}
                                         >
-                                            Rejeitar
+                                          Rejeitar
                                         </button>
-                                    </div>
+                                      </div>
+                                    )}
                                 </li>
                             ))}
                         </ul>
