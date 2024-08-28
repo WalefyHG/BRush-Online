@@ -15,6 +15,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import Swal from "sweetalert2";
 
 const Perfil = () => {
   const [perfilData, setPerfilData] = useState(undefined);
