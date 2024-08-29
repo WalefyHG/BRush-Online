@@ -11,7 +11,6 @@ const FriendShipModal = ({ show, onClose }) => {
 
   const [acceptedFriends, setAcceptedFriends] = useState([]);
   const [pendingRequests, setPendingRequests] = useState([]);
-  const [userID, setUserID] = useState(null);
   const navigate = useNavigate();
   const Toast = Swal.mixin({
     toast: true,
@@ -59,16 +58,6 @@ const FriendShipModal = ({ show, onClose }) => {
           } catch (error) {
             console.error("Erro ao buscar dados de amizade:", error);
           }
-
-          const requestUserLogado = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        setUserID(requestUserLogado.data.id);
-
         }
       };
 
@@ -238,7 +227,7 @@ const FriendShipModal = ({ show, onClose }) => {
                                         <p><strong>Jogo Preferido:</strong> {request.user_games}</p>
                                         <p><strong>Nacionalidade:</strong> {request.user_pais}</p>
                                     </div>
-                                    {request.user_id === userID && (
+                                    {!request.is_sender && (
                                       <div className={classes.actionButtons}>
                                         <button
                                           className={classes.acceptButton}
