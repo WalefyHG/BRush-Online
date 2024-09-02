@@ -141,6 +141,7 @@ hr {
     background-color: rgba(8, 112, 8, 0.689);
     border-radius: 5px;
     padding: 0.3rem;
+    z-index: 800;
     cursor: pointer;
     animation-duration: '0.5s'
 }

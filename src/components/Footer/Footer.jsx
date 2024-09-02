@@ -3,11 +3,9 @@ import classes from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <div className={classes.footerContainer}>
       <footer className={classes.footer}>
-        <h2><FaCopyright /> Criado Pela B-Rush/2023</h2>
+        <span><FaCopyright /> Criado Pela B-Rush/2023</span>
       </footer>
-    </div>
   )
 }
 

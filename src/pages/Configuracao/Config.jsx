@@ -116,13 +116,16 @@ const Config = () => {
             <FaHeartBroken /> Deletar Conta <FaChevronRight />
           </button>
         </div>
-        <Footer/>
-        </>
+
+      </>
        ) : (
         <Loading />
        )}
+       
       </div>
     </>
+
+    
   );
 };
 

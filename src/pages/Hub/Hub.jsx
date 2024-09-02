@@ -406,8 +406,8 @@ const Hub = () => {
             + Criar Noticia
           </button>
         )}
-        <Footer />
       </div>
+      <Footer />
       {isModalOpen && (
         <div className={`${classes.modal} ${isModalOpen ? classes.show : ""}`}>
           <VscError onClick={handleModal} id={classes.closeModal} />
@@ -457,6 +457,7 @@ const Hub = () => {
           )}
         </div>
       )}
+
     </>
   );
 };

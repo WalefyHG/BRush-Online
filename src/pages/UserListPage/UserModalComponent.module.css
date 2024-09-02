@@ -11,9 +11,9 @@
 
 
 .listaContatos{
-  width:19vw;
-  height:80vh;
-  left:40vh;
+  width: 50%;
+  height: 80vh;
+  left: 40vh;
   margin-top:10vh;
   border-radius: 2%;
   display: flex;

@@ -134,8 +134,8 @@ const UserModalComponent = () => {
         {chatModal && (
           <Chats roomName={roomName} selectUser={selectUser}/>
       )}
-      </div>
       <Footer />
+      </div>
     </>
   );
 };

@@ -142,13 +142,13 @@ const home = () => {
           {errors.password && <p>{errors.password.message}</p>}
           <br />
           <div className={classes.sideButtons}>
-            <button
+            <a
               onClick={() => navigate("/cadastro")}
               className={classes.button}
               id={classes.cancelar}
             >
               Criar Conta
-            </button>
+            </a>
             <button className={classes.button}>Entrar</button>
           </div>
           <div className={classes.select}>

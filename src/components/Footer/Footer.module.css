@@ -1,19 +1,19 @@
 
-.footerContainer{
+.footer{
+    position: absolute;
     background-color: transparent;
+    color: white;
+    text-align: center;
+    width: auto;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
-.footer{
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 10px;
-    margin: 0 auto;
-    margin-top: 2rem;
-    margin-bottom: 10px;
-    z-index: 999;
+.footer span{
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
 }

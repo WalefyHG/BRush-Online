@@ -41,6 +41,7 @@
     height: 25rem;
     margin-top: 7rem;
     border-radius: 15px;
+    margin-bottom: 5rem;
 }
 .buttoncontainer button:first-child{
     margin-top: 40px;
@@ -66,6 +67,8 @@
 .buttoncontainer button:last-child{
     background-color: red;
 }
+
+
 
 
 

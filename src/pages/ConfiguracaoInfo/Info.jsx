@@ -278,12 +278,12 @@ const userIdade = (perfil) => {
               </div>
             </form>
           </div>
-          <Footer />
         </div>
       ) : (
         <div>Loading</div>
       )}
     </div>
+    
   );
 };
 
