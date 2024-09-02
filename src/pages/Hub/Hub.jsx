@@ -336,7 +336,7 @@ const Hub = () => {
                 <p>Data de Criação: {formatData(news.notice_date)}</p>
                 <h2>Autor: {news.notice_writer.user_name}</h2>
                 {news.notice_image ? (
-                  <img src={`http://127.0.0.1:8000${news.notice_image}`} />
+                  <img src={`${news.notice_image}`} />
                 ) : (
                   <img style={{ display: "none" }} />
                 )}
@@ -389,7 +389,7 @@ const Hub = () => {
                 <p>Data de Criação: {formatData(news.notice_date)}</p>
                 <h2>Autor: {news.notice_writer.user_name}</h2>
                 {news.notice_image ? (
-                  <img src={`http://127.0.0.1:8000${news.notice_image}`} />
+                  <img src={`${news.notice_image}`} />
                 ) : (
                   <img style={{ display: "none" }} />
                 )}

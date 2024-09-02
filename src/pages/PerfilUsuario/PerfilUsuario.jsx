@@ -163,11 +163,11 @@ const Perfil = () => {
         <section>
           <div className={classes.bannerContainer}>
             <div className={classes.imgbanner}>
-              <img src={`${import.meta.env.VITE_API_URL}${perfilData.user_banner}`} className={classes.bannerimg} />
+              <img src={`${perfilData.user_banner}`} className={classes.bannerimg} />
             </div>
             <div className={classes.profileImage}>
               <img
-                src={`${import.meta.env.VITE_API_URL}${perfilData.user_image} `}
+                src={`${perfilData.user_image} `}
                 id={classes.profile2}
                 alt="Icone de Perfil"
               />
@@ -237,7 +237,7 @@ const Perfil = () => {
           <div className={classes.infoPlayerContainer}>
             <div className={classes.profilePicture}>
               <img
-                src={`${import.meta.env.VITE_API_URL}${perfilData.user_image}`}
+                src={`${perfilData.user_image}`}
                 alt="Banner"
                 id={classes.fallen}
               />

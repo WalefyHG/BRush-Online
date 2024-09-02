@@ -112,7 +112,7 @@ const UserModalComponent = () => {
               >
                 <div className={style.foto}>
                   <img
-                    src={`${import.meta.env.VITE_API_URL}${user.user_image}`}
+                    src={`${user.user_image}`}
                     alt={user.name}
                     className={style.foto}
                   />

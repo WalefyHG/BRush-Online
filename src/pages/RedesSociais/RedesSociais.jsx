@@ -53,7 +53,7 @@ const RedesSociais = () => {
       const token = Cookies.get("token");
       if (token) {
         try {
-          const response = await axios.get(`${process.env.REACT_APP_LINK_API}/users/perfil`, {
+          const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -71,7 +71,7 @@ const RedesSociais = () => {
     const token = Cookies.get("token");
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_LINK_API}/users/atualizar_redes_sociais`,
+        `${import.meta.env.VITE_API_URL}/users/atualizar_redes_sociais`,
         social,
         {
           headers: {
@@ -105,7 +105,7 @@ const RedesSociais = () => {
       <div className={classes.mainContainer}>
       {data && (<NavBar user={data} />)}
       <div className={classes.imgContainer}>
-        <img src={`${process.env.REACT_APP_LINK_API}${data.user_image}`} alt="" />
+        <img src={`${data.user_image}`} alt="" />
       </div>
       <form onSubmit={handleSubmit(handleSave)} className={classes.container}>
         <label>Instagram:</label>

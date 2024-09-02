@@ -88,7 +88,7 @@ const NavBar = ({ user }) => {
               <li ref={modalRef}>
                 <a onClick={handleModal}>
                   <img
-                    src={user?.user_image ? `${import.meta.env.VITE_API_URL}${user.user_image}` : "./Perfil/logo.png"}
+                    src={user?.user_image ? `${user.user_image}` : "./Perfil/logo.png"}
                     id={classes.profile}
                     alt="Icone de Perfil"
                   />

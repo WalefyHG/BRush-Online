@@ -74,7 +74,7 @@ const PesquisaResults = () => {
             <li key={result.user_id}>
             <a className={classes.manipulate} onClick={() => navigate(`/perfil/${result.user_name}`)} >
               <div className={classes.imageDiv}>
-                <img src={`${import.meta.env.VITE_API_URL}${result.user_image}`} alt="Imagem do Usuario" />
+                <img src={`${result.user_image}`} alt="Imagem do Usuario" />
               </div>
             <div className={classes.textControl}>
             <label>Usuario: {result.user_firstName}</label>

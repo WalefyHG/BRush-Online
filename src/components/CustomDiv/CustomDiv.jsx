@@ -45,7 +45,7 @@ const CustomDiv = () => {
       <div className={classes.pfpContainer}>
         <img
           className={classes.pfp}
-          src={`${import.meta.env.VITE_API_URL}${data.user_image}`}
+          src={`${data.user_image}`}
         />
       </div>
       <div id={classes.nome}>

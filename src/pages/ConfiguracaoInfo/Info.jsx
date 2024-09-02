@@ -134,7 +134,7 @@ const userIdade = (perfil) => {
           <div className={classes.containerGeral}>
             <div className={classes.firstContainer}>
               <div className={classes.pfpContainer}>
-                <img className={classes.pfp} src={`${import.meta.env.VITE_API_URL}${data.user_image}`} />
+                <img className={classes.pfp} src={`${data.user_image}`} />
               </div>
                 <h2 id={classes.nome}>{data.user_name} </h2>
               <form id={classes.emailesenha}>
