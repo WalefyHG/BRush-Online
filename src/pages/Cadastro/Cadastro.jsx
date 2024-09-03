@@ -22,6 +22,7 @@ const formsTemplate = {
   user_lastName: "",
   user_birthday: "",
   user_email: "",
+  confirm_email: "",
   password: "",
   confirm_password: "",
   user_firstName: "",
@@ -77,6 +78,62 @@ const Cadastro = () => {
           title: 'Nome e Sobrenome são obrigatórios!'
         })
         return false;
+      }
+
+      if(currentStep === 1 ){
+        
+        if(!data.image){
+          Toast.fire({
+            icon: 'error',
+            title: 'Imagem é obrigatória!'
+          })
+          return false;
+        }
+
+        const maxSizeInMB = 9;
+        const maxSize = maxSizeInMB * 1024 * 1024;
+
+        if(data.image.size > maxSize){
+          Toast.fire({
+            icon: 'error',
+            title: `Imagem deve ter no máximo ${maxSizeInMB}MB!`
+          })
+          return false;
+        }
+
+        if(!data.user_email){
+          Toast.fire({
+            icon: 'error',
+            title: 'Email é obrigatório!'
+          })
+          return false;
+        }
+
+        if(data.user_email.indexOf('@') === -1 || data.user_email.indexOf('.') === -1){
+          Toast.fire({
+            icon: 'error',
+            title: 'Email inválido!'
+          })
+          return false;
+
+        }
+
+        if(data.user_email !== data.confirm_email){
+          Toast.fire({
+            icon: 'error',
+            title: 'Emails não conferem!'
+          })
+          return false;
+        }
+
+        if(data.confirm_email.indexOf('@') === -1 || data.confirm_email.indexOf('.') === -1){
+          Toast.fire({
+            icon: 'error',
+            title: 'Email inválido!'
+          })
+          return false;
+        }
+
       }
 
       if(currentStep === 2){

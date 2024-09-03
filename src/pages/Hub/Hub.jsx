@@ -134,7 +134,7 @@ const Hub = () => {
         formData.append("notice", JSON.stringify(newNews));
         formData.append("image", image);
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}notices/notices`,
+          `${import.meta.env.VITE_API_URL}/notices/notices`,
           formData,
           {
             headers: {
@@ -221,7 +221,7 @@ const Hub = () => {
         formData.append("image", image);
 
         const response = await axios.put(
-          `http://127.0.0.1:8000/notices/update/${editingId}`,
+          `${import.meta.env.VITE_API_URL}/notices/update/${editingId}`,
           formData,
           {
             headers: {

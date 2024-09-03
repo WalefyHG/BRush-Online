@@ -16,7 +16,7 @@ const Upload = ({ data, updateFieldHandler }) => {
         placeholder="Digite seu email"
       />
       <label htmlFor="">Confirme Email</label>
-      <input type="text" name="confirm_email" placeholder="Confirme seu email" id="" />
+      <input type="text" name="confirm_email" placeholder="Confirme seu email" id="" value={data.confirm_email || ""} onChange={(e) => updateFieldHandler("confirm_email", e.target.value)} />
       <label htmlFor="">Imagem de Perfil</label>
       <input
         type="file"
