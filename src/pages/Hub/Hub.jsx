@@ -397,6 +397,7 @@ const Hub = () => {
             ))}
           </div>
         </div>
+        <Footer />
         {!isModalOpen && (
           <button
             onClick={handleModal}
@@ -407,7 +408,6 @@ const Hub = () => {
           </button>
         )}
       </div>
-      <Footer />
       {isModalOpen && (
         <div className={`${classes.modal} ${isModalOpen ? classes.show : ""}`}>
           <VscError onClick={handleModal} id={classes.closeModal} />
@@ -440,7 +440,7 @@ const Hub = () => {
                 Envie seu Arquivo
                 <input
                   type="file"
-                  accept="img/*"
+                  accept="image/*"
                   id="inputImage"
                   name="image"
                   onChange={handleImage}
