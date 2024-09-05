@@ -1,70 +1,33 @@
 import classes from './TesteForm.module.css'
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { io } from "socket.io-client";
 
 const TesteForm = () => {
 
-    const [message, setMessage] = useState([]);
-    const [newMessage, setNewMessage] = useState(null);
-    const token = Cookies.get("token");
-    const socket = io("ws://localhost:8000", {
-        auth: {
-            token: `Bearer ${token}`,
-        },
-    });
-
-  useEffect(() => {
-    try{
-      const response = axios.get(`${import.meta.env.VITE_API_URL}/chat/messages`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if(response.status === 200){
-        setMessage(response.data);
-      }
-
-      socket.on("chat_message", (message) => {
-        setMessage((prevMessage) => [...prevMessage, message]);
-      });
-
-    }catch(error){
-      console.log(error);
-    };
-
-    return () => {
-      socket.disconnect();
-    };
-  }, [token, socket]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    socket.emit("chat_message", newMessage);
-    setNewMessage('')
-  }
-
+  const navigate = useNavigate();
 
   return (
     <div className={classes.mainContainer}>
-      <h2>Chat</h2>
-            <div>
-                {message.map((msg, index) => (
-                    <div key={index}>{msg.message}</div>
-                ))}
+          <div className={classes.formContainer}>
+            <img src="./FaviconLight.png" alt="logo" />
+            <p className={classes.formTitle}>Digite seu email para redefinir a senha</p>
+            <form>
+              <input type="email" id="email" name="email" placeholder='Digite seu email' required />
+              <div className={classes.buttons}>
+              <a type="button" onClick={() => navigate("/")} id={classes.cancelar}>
+                Voltar
+              </a>
+              <button type="submit" id={classes.enviar}>
+                Enviar
+              </button>
             </div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                />
-                <button type="submit">Enviar</button>
             </form>
-        </div>
-  )
+          </div>
+    </div>
+  );
 }
 
 export default TesteForm

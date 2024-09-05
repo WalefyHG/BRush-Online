@@ -10,7 +10,7 @@
 
 .formTitle{
     font-family: "Montserrat", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
     margin-bottom: 1rem;
 }
@@ -23,8 +23,8 @@
     gap: 1rem;
     background-color: #181818;
     border-radius: 5%;
-    width: 35rem;
-    height: 30rem;
+    width: 40rem;
+    height: 40rem;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
@@ -46,10 +46,25 @@
 
 .formContainer input{
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    height: 2.5rem;
+    color: white;
+    border: none;
+    padding-left: 1rem;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    font-size: 0.9rem;
+    font-family: 'Montserrat';
+    padding-bottom: 0.5rem;
+}
+
+.formContainer input::placeholder{
+    color: rgba(255, 255, 255, 0.535);
+}
+
+.formContainer input:focus{
+    border-bottom: 1px solid #7f0f30;
 }
 
 .buttons{

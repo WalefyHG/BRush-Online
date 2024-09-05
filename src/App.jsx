@@ -18,6 +18,8 @@ import Notification from "./pages/Notification/Notification";
 import RedeSociais from "./pages/RedesSociais/RedesSociais"; 
 import Hub from "./pages/Hub/Hub";
 import UserModalComponent from './pages/UserListPage/UserModalComponent'
+import RedefinirSenha from "./pages/RedefinirSenha/RedefinirSenha";
+import ReedemCode from "./pages/ReedemCode/ReedemCode";
 
 
 import Chats from "./pages/Chats/Chats";
@@ -68,6 +70,12 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/redes_sociais" element={<RedeSociais />} />
+        </Routes>
+        <Routes>
+          <Route path="/redefinirSenha" element={<RedefinirSenha />} />
+        </Routes>
+        <Routes>
+          <Route path="/reedemCode" element={<ReedemCode />} />
         </Routes>
         <Routes>
           <Route

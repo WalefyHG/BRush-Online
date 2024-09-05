@@ -46,10 +46,25 @@
 
 .formContainer input{
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    height: 2.5rem;
+    color: white;
+    border: none;
+    padding-left: 1rem;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    font-size: 0.9rem;
+    font-family: 'Montserrat';
+    padding-bottom: 0.5rem;
+}
+
+.formContainer input::placeholder{
+    color: rgba(255, 255, 255, 0.535);
+}
+
+.formContainer input:focus{
+    border-bottom: 1px solid #7f0f30;
 }
 
 .buttons{

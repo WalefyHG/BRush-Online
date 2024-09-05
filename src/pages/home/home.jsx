@@ -158,7 +158,7 @@ const home = () => {
           <div className={classes.select}>
             <p id={classes.esqueceu}>
               Esqueceu sua senha?{" "}
-              <a href="#">Clique aqui para recuperar senha</a>
+              <a onClick={() => navigate("/redefinirSenha")}>Clique aqui para recuperar senha</a>
             </p>
           </div>
         </form>

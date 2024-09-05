@@ -114,6 +114,7 @@
 #esqueceu a{
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #esqueceu a:hover{

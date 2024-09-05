@@ -225,8 +225,8 @@ const onEmojiSelect = (emoji) => {
   return (
     <div className={style.chat} id="chat">
       <div className={style.chatHeader} id="chatHeader">
-        <img src={`${selectionUser.user_image}`} className={style.chatFoto} id="chatFoto" alt="Foto de Perfil" />
-        <p className={style.chatNome} id="chatNome">{selectionUser.user_name}</p>
+        <img src={`${selectionUser?.user_image}`} className={style.chatFoto} id="chatFoto" alt="Foto de Perfil" />
+        <p className={style.chatNome} id="chatNome">{selectionUser?.user_name}</p>
       </div>
       <div className={style.chatMensagens} id="chatMensagens" ref={chatContainerRef}>
         {messages.map((msg) => (
