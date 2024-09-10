@@ -77,10 +77,10 @@ const NavBar = ({ user }) => {
               value={user_firstName}
               name="user_firstName"
               onChange={(e) => setUserFirstName(e.target.value)}
-              placeholder="Pesquise Aqui"
+              placeholder="Pesquise Aqui Pelo Nome "
             />
             <button type="submit" onClick={handleSearch} id={classes.pesquisa}>
-              Search
+              Pesquisar
             </button>
           </div>
           <div className={classes.links}>
@@ -109,8 +109,9 @@ const NavBar = ({ user }) => {
                       <button onClick={() => navigate("/hub")}>
                         <FaRegNewspaper /> Hub
                       </button>
-                      <button onClick={() => navigate("/config")}>
-                        <IoIosSettings /> Config
+                      <button id={classes.config} onClick={() => navigate("/config")}>
+                        <IoIosSettings id={classes.svgConfig} />Configu-
+                        rações
                       </button>
                       <button id={classes.logout} onClick={handleLogout}>
                         <FaDoorOpen /> Logout

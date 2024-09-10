@@ -80,6 +80,90 @@ const Cadastro = () => {
         return false;
       }
 
+      if(currentStep === 0 ){
+        if(data.user_name.length < 3){
+          Toast.fire({
+            icon: 'error',
+            title: 'Nome deve ter no mínimo 3 caracteres!'
+          })
+          return false;
+        }
+
+        if(data.user_lastName.length < 3){
+          Toast.fire({
+            icon: 'error',
+            title: 'Sobrenome deve ter no mínimo 3 caracteres!'
+          })
+          return false;
+        }
+
+        if(data.user_birthday === ""){
+          Toast.fire({
+            icon: 'error',
+            title: 'Data de nascimento é obrigatória!'
+          })
+          return false;
+        }
+
+        if(data.user_birthday.length < 10){
+          Toast.fire({
+            icon: 'error',
+            title: 'Data de nascimento inválida!'
+          })
+          return false;
+        }	
+
+        if(data.user_birthday.length > 10){
+          Toast.fire({
+            icon: 'error',
+            title: 'Data de nascimento inválida!'
+          })
+          return false;
+        }
+
+        const date = new Date(data.user_birthday)
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        
+        if(year < 1900){
+          Toast.fire({
+            icon: 'error',
+            title: 'Ano inválido!'
+          })
+          return false;
+        }
+
+        if(year > new Date().getFullYear()){
+          Toast.fire({
+            icon: 'error',
+            title: 'Ano inválido!'
+          })
+          return false;
+        }
+
+        if(month < 1 || month > 12){
+          Toast.fire({
+            icon: 'error',
+            title: 'Mês inválido!'
+          })
+          return false;
+        }
+
+        if(day < 1 || day > 31){
+          Toast.fire({
+            icon: 'error',
+            title: 'Dia inválido!'
+          })
+          return false;
+        }
+
+
+
+        
+
+      }
+
       if(currentStep === 1 ){
         
         if(!data.image){

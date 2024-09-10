@@ -367,3 +367,41 @@
 }
 
 /* Media Queries */
+
+
+
+.amigo_button {
+    background-color: #4caf50; /* Verde para o botão */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+  }
+  
+  .amigo_button:hover {
+    background-color: #45a049;
+  }
+  
+  .amigo_button:disabled {
+    background-color: #9e9e9e; 
+    cursor: not-allowed;
+  }
+  
+  #solicitacao_button {
+    background-color: #2196f3; 
+  }
+  
+  #amigos_button {
+    background-color: #f32175; 
+  }
+  
+  #amigo_button svg {
+    font-size: 20px;
+  }

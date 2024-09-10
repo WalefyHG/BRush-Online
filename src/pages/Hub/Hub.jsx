@@ -341,7 +341,7 @@ const Hub = () => {
                   <img style={{ display: "none" }} />
                 )}
 
-                {user && user.user_id === news.notice_writer.user_id && (
+                {user && user.id === news.notice_writer.id && (
                   <div className={classes.edit}>
                     <FaRegTrashAlt
                       onClick={() => handleDeleteNews(news.notice_id)}
@@ -361,7 +361,7 @@ const Hub = () => {
               <div className={classes.controleSearch}>
               <input
                 type="text"
-                placeholder="Pesquisar"
+                placeholder="Pesquise pelo titulo"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
