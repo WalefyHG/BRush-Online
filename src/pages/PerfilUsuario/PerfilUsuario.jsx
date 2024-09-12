@@ -10,7 +10,7 @@ import {
   FaArrowCircleRight,
   FaUserPlus,
   FaUserCheck,
-  FaRegTrashAlt
+  FaRegTrashAlt,
 } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
 import { IoMdSend } from "react-icons/io";
@@ -146,11 +146,11 @@ const Perfil = () => {
 
   const handleOpenFriendModal = () => {
     setShowFriendModal(true);
-  }
+  };
 
   const handleCloseFriendModal = () => {
     setShowFriendModal(false);
-  }
+  };
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -160,52 +160,50 @@ const Perfil = () => {
     setIsHovering(false);
   };
 
-
   const handleDeleteFriendship = async () => {
     const token = Cookies.get("token");
 
     Swal.fire({
-      title: 'Tem certeza que deseja deletar sua amizade?',
+      title: "Tem certeza que deseja deletar sua amizade?",
       text: "Você não poderá reverter essa ação!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#FF0000',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim, deletar!',
-      cancelButtonText: 'Cancelar'
+      confirmButtonColor: "#FF0000",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, deletar!",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        if(token){
-          try{
-            const response = axios.delete(`${import.meta.env.VITE_API_URL}/friendship/delete_friendship`, {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+        if (token) {
+          try {
+            const response = axios.delete(
+              `${import.meta.env.VITE_API_URL}/friendship/delete_friendship`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
 
-          Toast.fire({
-            icon: "success",
-            title: "Amizade deletada com sucesso!",
-          })
+            Toast.fire({
+              icon: "success",
+              title: "Amizade deletada com sucesso!",
+            });
 
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
-
-
-        }catch(error){
-          Toast.fire({
-            icon: "error",
-            title: "Erro ao deletar amizade!",
-          })
-          console.log(error)
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          } catch (error) {
+            Toast.fire({
+              icon: "error",
+              title: "Erro ao deletar amizade!",
+            });
+            console.log(error);
+          }
         }
       }
-    }
-  });
-};
-
+    });
+  };
 
   const openSocialMediaLink = (link) => {
     if (link) {
@@ -231,6 +229,8 @@ const Perfil = () => {
     const idade = anoAtual - anoNascimento;
     return idade;
   };
+
+  const isCurrentUser = perfilData?.id === usuarioLogado?.id;
 
   if (!perfilData) {
     return <Loading />;
@@ -294,31 +294,40 @@ const Perfil = () => {
               <ul>
                 <li>
                   <div>
-                    {status === null && (
-                      <button onClick={handleSendFriendRequest} className={classes.amigo_button}>
-                        <FaUserPlus /> Adicionar Amigo
-                      </button>
-                    )}
+                    {!isCurrentUser && (
+                      <>
+                        {status === null && (
+                          <button
+                            onClick={handleSendFriendRequest}
+                            className={classes.amigo_button}
+                          >
+                            <FaUserPlus /> Adicionar Amigo
+                          </button>
+                        )}
 
-                    {status === "pending" && (
-                      <button
-                        className={classes.amigo_button}
-                        id={classes.solicitacao_button}
-                        onClick={handleOpenFriendModal}
-                      >
-                       <IoMdSend /> Solicitação enviada
-                      </button>
-                    )}
+                        {status === "pending" && (
+                          <button
+                            className={classes.amigo_button}
+                            id={classes.solicitacao_button}
+                            onClick={handleOpenFriendModal}
+                          >
+                            <IoMdSend /> Solicitação pendente
+                          </button>
+                        )}
 
-                    {status === "accepted" && (
-                      <button className={classes.amigo_button} id={classes.amigos_button} onClick={handleDeleteFriendship} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-                        {isHovering ? (
-                          <FaRegTrashAlt />
-                        ) : (
-                          <FaUserCheck />
-                        )}{" "}
-                        {isHovering ? "Deixar de seguir" : "Amigos"}
-                      </button>
+                        {status === "accepted" && (
+                          <button
+                            className={classes.amigo_button}
+                            id={classes.amigos_button}
+                            onClick={handleDeleteFriendship}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            {isHovering ? <FaRegTrashAlt /> : <FaUserCheck />}
+                            {isHovering ? "Deixar de seguir" : "Amigos"}
+                          </button>
+                        )}
+                      </>
                     )}
                   </div>
                 </li>
@@ -383,7 +392,10 @@ const Perfil = () => {
         </section>
       </main>
 
-            <FriendShipModal show={showFriendModal} onClose={handleCloseFriendModal} />
+      <FriendShipModal
+        show={showFriendModal}
+        onClose={handleCloseFriendModal}
+      />
 
       <Footer />
     </div>

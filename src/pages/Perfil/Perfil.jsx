@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 import {
   FaEnvelope,
   FaUserCircle,
@@ -18,6 +19,7 @@ import Loading from "../../components/Loading/Loading";
 const Perfil = () => {
   const [perfilData, setPerfilData] = useState(undefined);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -182,7 +184,7 @@ const Perfil = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/config">
+                  <a onClick={() => navigate("/config")}>
                     <FaGear />
                     <span>Configurações</span>
                   </a>
