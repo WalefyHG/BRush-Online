@@ -127,7 +127,7 @@ const AlterSenha = () => {
         <>
           <NavBar user={data} />
           <div className={classes.foto}>
-            <img src={`${import.meta.env.VITE_API_URL}${data.user_image}`} />
+            <img src={data?.user_image} />
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
