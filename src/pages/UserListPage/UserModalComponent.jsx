@@ -37,7 +37,7 @@ const UserModalComponent = () => {
     const fetchUsers = async (currentUser) => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/users/pegarAll`,
+          `${import.meta.env.VITE_API_URL}/users/getAllPublic`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
