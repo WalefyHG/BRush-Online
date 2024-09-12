@@ -70,6 +70,7 @@ const NavBar = ({ user }) => {
               src="./FaviconLight.png"
               id={classes.logoBrush}
               alt="Logo B-Rush"
+              onClick={() => navigate("/hub")}
             />
             <input
               type="text"
